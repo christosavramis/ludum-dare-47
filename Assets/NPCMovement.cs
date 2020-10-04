@@ -7,11 +7,9 @@ public class NPCMovement : MonoBehaviour
 
     public float moveSpeed = 5f;
 
-    public Rigidbody2D rb;
+    public Rigidbody2D rb;    
 
     Vector2 movement;
-
-    
 
     // Update is called once per frame
     void Update()
