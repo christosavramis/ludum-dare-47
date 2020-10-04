@@ -9,15 +9,15 @@ public class NPCBoundaries : MonoBehaviour
     // Use this for initioalization
     void Start()
     {
-        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+        //screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
     }
 
     // Update is called once per frame
     void LateUpdate()
     {
-        Vector3 viewPos = transform.position;
-        viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x, screenBounds.x * -1);
-        viewPos.y = Mathf.Clamp(viewPos.y, screenBounds.y, screenBounds.y * -1);
-        transform.position = viewPos;
+        //Vector3 viewPos = transform.position;
+        //viewPos.x = Mathf.Clamp(viewPos.x, screenBounds.x, screenBounds.x * -1);
+        //viewPos.y = Mathf.Clamp(viewPos.y, screenBounds.y, screenBounds.y * -1);
+        //transform.position = viewPos;
     }
 }
