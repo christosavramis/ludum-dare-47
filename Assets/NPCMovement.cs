@@ -17,8 +17,8 @@ public class NPCMovement : MonoBehaviour
     void Update()
     {
         // Input
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        movement.x = -1;
+        movement.y = 0;
     }
 
     void FixedUpdate()
