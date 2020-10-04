@@ -14,4 +14,5 @@ public class CustomSceneManager : MonoBehaviour
     {
         CustomSceneManager.LoadScene(i);
     }
+
 }
