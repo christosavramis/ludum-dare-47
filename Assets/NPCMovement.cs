@@ -9,19 +9,24 @@ public class NPCMovement : MonoBehaviour
 
     public Rigidbody2D rb;    
 
-    Vector2 movement;
+    Vector2 direction = -Vector2.right;
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-        // Input
-        movement.x = -1;
-        movement.y = 0;
+        rb.velocity = direction * moveSpeed;
     }
 
     void FixedUpdate()
     {
         // Movement
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        //rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
+
+        Vector3 screenTopRight = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
+        Vector3 screenBottomLeft = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0));
+
+        if ((int)rb.transform.position.x < screenBottomLeft.x)
+        {
+            //rb.MovePosition(initialization);
+        }
     }
 }
