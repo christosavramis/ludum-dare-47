@@ -24,9 +24,9 @@ public class NPCMovement : MonoBehaviour
         Vector3 screenTopRight = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
         Vector3 screenBottomLeft = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0));
 
-        if ((int)rb.transform.position.x < screenBottomLeft.x)
+        if (transform.position.x < screenBottomLeft.x)
         {
-            //rb.MovePosition(initialization);
+            rb.MovePosition(new Vector2(screenTopRight.x, transform.position.y));           
         }
     }
 }
