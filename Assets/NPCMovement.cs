@@ -55,7 +55,7 @@ public class NPCMovement : looping_guy_GameManager, IPointerDownHandler, IPointe
     {
         //Debug.Log("OnDrag");
         rb.bodyType = RigidbodyType2D.Static;
-        rectTransform.anchoredPosition += eventData.delta / 100; //canvas.scaleFactor
+        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor; //canvas.scaleFactor
     }
 
     public void OnEndDrag(PointerEventData eventData)

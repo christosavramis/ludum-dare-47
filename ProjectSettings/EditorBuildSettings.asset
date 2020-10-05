@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Park.unity
     guid: 7d9f3400b088e9548b0b062225cc3bde
+  - enabled: 1
+    path: Assets/Scenes/LoopingGuyMiniGamePreScene.unity
+    guid: d161f3bf8a0bb0244baa6911712f0d4f
+  - enabled: 1
+    path: Assets/Scenes/LoopingGuyMiniGame.unity
+    guid: 434ce66bda7faeb4ebb496c3d818a683
   m_configObjects: {}
