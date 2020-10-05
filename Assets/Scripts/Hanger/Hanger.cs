@@ -66,7 +66,7 @@ public class Hanger : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemy")
         {
-            Debug.Log("Dead change scene");
+            CustomSceneManager.LoadNext();
         }
     }
 }
