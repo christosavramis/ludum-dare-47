@@ -353,6 +353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   rb: {fileID: 1859309156}
+  beingGrabbed: 1
   canvas: {fileID: 1560659509}
 --- !u!50 &1859309156
 Rigidbody2D:

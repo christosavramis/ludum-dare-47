@@ -12,26 +12,19 @@ public class NPCMovement : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
 
     Vector2 direction = -Vector2.right;
 
-   
+    public int beingGrabbed = 1;
    
     void Start()
     {
-        rb.velocity = direction * moveSpeed;
+        
     }
 
     void FixedUpdate()
     {
         // Movement
         //rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
-
-        Vector3 screenTopRight = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
-        Vector3 screenBottomLeft = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0));
-
-        if (transform.position.x < screenBottomLeft.x)
-        {
-            rb.MovePosition(new Vector2(screenTopRight.x, transform.position.y));
-            Debug.Log("Start again");
-        }
+        rb.velocity = direction * moveSpeed * beingGrabbed;
+        NPCMovesLeft();
     }
 
     [SerializeField] private Canvas canvas;
@@ -56,11 +49,25 @@ public class NPCMovement : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     public void OnEndDrag(PointerEventData eventData)
     {
         Debug.Log("OnEndDrag");
+        beingGrabbed = 1;
     }
     
     public void OnPointerDown(PointerEventData eventData)
     {
         Debug.Log("OnPointerDown");
+        beingGrabbed = 0;
     }
     
+    private void NPCMovesLeft()
+    {
+        Vector3 screenTopRight = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
+        Vector3 screenBottomLeft = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0));
+
+        if (transform.position.x<screenBottomLeft.x)
+        {
+            rb.MovePosition(new Vector2(screenTopRight.x, transform.position.y));
+            Debug.Log("Start again");
+        }
+    }
+
 }
