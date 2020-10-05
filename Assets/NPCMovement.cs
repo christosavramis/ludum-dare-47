@@ -13,7 +13,7 @@ public class NPCMovement : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     Vector2 direction = -Vector2.right;
 
    
-    
+   
     void Start()
     {
         rb.velocity = direction * moveSpeed;
@@ -34,7 +34,7 @@ public class NPCMovement : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
         }
     }
 
-    
+    [SerializeField] private Canvas canvas;
     private RectTransform rectTransform;
 
     private void Awake()
@@ -50,7 +50,7 @@ public class NPCMovement : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     public void OnDrag(PointerEventData eventData)
     {
         Debug.Log("OnDrag");
-        //rectTransform.anchoredPosition += eventData.delta;
+        rectTransform.anchoredPosition += eventData.delta / 100; //canvas.scaleFactor
     }
 
     public void OnEndDrag(PointerEventData eventData)
