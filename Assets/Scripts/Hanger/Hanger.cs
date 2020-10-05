@@ -65,7 +65,7 @@ public class Hanger : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemy")
         {
-            CustomSceneManager.LoadNext();
+            HangerEnding.instance.Defeat();
         }
     }
 }
