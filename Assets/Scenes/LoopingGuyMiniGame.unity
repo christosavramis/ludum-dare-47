@@ -1251,13 +1251,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: Main
-    clip: {fileID: 0}
-    volume: 0
-    pitch: 0
+  - name: maintheme
+    clip: {fileID: 8300000, guid: 6bf7cfca14a0d4048bf467d8e4e0f1e3, type: 3}
+    volume: 0.704
+    pitch: 1
     randomVolume: 0
     randomPitch: 0
-    loop: 0
+    loop: 1
 --- !u!4 &2067279151
 Transform:
   m_ObjectHideFlags: 0
