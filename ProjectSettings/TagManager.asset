@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - Enraged
   layers:
   - Default
   - TransparentFX
@@ -11,32 +13,42 @@ TagManager:
   -
   - Water
   - UI
-  -
-  -
+  - 
+  - 
   - GrapplingArea
   - Player
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 3467895279
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 2589791761
+    locked: 0
+  - name: Foreground
+    uniqueID: 1302168489
     locked: 0
