@@ -46,6 +46,7 @@ public class CartScript : MonoBehaviour
         {
             stop = true;
             Debug.Log("end scene");
+            CustomSceneManager.LoadNext();
         }
         if (!stop)
         {

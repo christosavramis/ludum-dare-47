@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Hanger.unity
     guid: a575bc8f49b37d745b19e5cb1887cec9
+  - enabled: 1
+    path: Assets/Scenes/ParkPreScene.unity
+    guid: 66d229657c990c94a994ceabcca9e2bb
+  - enabled: 1
+    path: Assets/Scenes/Park.unity
+    guid: 7d9f3400b088e9548b0b062225cc3bde
   m_configObjects: {}
