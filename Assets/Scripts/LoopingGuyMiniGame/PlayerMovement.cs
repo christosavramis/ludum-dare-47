@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     float holdingCountDown;
     [SerializeField]
     float endTime = 10f;
-
+    bool finished = false;
     [Header("Display msgs")]
     public GameObject winDisplay;
     public GameObject defeatDisplay;
@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        Invoke("EndDefeat", endTime);
+       Invoke("EndDefeat", endTime);
     }
     void OnMouseDrag()
     {
@@ -53,9 +53,9 @@ public class PlayerMovement : MonoBehaviour
         //This event triggers when the mouseclick is released **not only after dragging something so we check if we have dragged something before
         if (dragged)
         {
+            holdingCountDown = holdingTime;
             rb.bodyType = RigidbodyType2D.Dynamic;
             dragged = false;
-            holdingCountDown = holdingTime;
         }
     }
     private void FixedUpdate()
@@ -78,9 +78,10 @@ public class PlayerMovement : MonoBehaviour
         
         if (dragged)
         {
-            holdingTime -= 1 * Time.deltaTime;
-            if (holdingTime <= 0)
+            holdingCountDown -= 1 * Time.deltaTime;
+            if (holdingCountDown <= 0 && !finished)
             {
+                finished = true;
                 CancelInvoke();
                 EndVictory();
             }
@@ -91,9 +92,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void EndDefeat()
     {
-        Debug.Log("Defeat");
-        defeatDisplay.SetActive(true);
-        Invoke("ChangeScene", 2f);
+        if (!finished)
+        {
+            finished = true;
+            Debug.Log("Defeat");
+            defeatDisplay.SetActive(true);
+            Invoke("ChangeScene", 2f);
+        }
+
     }
     private void EndVictory()
     {
