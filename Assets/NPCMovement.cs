@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class NPCMovement : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
-{
-    protected string testString;
-
+public class NPCMovement : looping_guy_GameManager, IPointerDownHandler, IPointerUpHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
+{    
     public float moveSpeed = 5f;
 
     public Rigidbody2D rb;    
@@ -18,43 +16,70 @@ public class NPCMovement : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     [SerializeField] private Canvas canvas;
     private RectTransform rectTransform;
 
+    
+    float startingTimeVictory = 5f;
+    float currentTimeVictory = 5f;
+
+
     void FixedUpdate()
     {
         // Movement
         //rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
         rb.velocity = direction * moveSpeed * beingGrabbed;
         NPCMovesLeft();
+
+        if(beingGrabbed == 0)
+        {
+            currentTimeVictory -= 1 * Time.deltaTime;
+            if (currentTimeVictory < 0)
+            {
+                GameOver("victory");
+            }
+        }
+
+
     }    
 
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
-        testString = "testString text";
+        //testString = "testString text";
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("OnBeginDrag");
+        //Debug.Log("OnBeginDrag");
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        Debug.Log("OnDrag");
+        //Debug.Log("OnDrag");
         rb.bodyType = RigidbodyType2D.Static;
         rectTransform.anchoredPosition += eventData.delta / 100; //canvas.scaleFactor
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("OnEndDrag");
+        ContinueMovement();
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        ContinueMovement();
+    }
+
+    private void ContinueMovement()
+    {
         beingGrabbed = 1;
         rb.bodyType = RigidbodyType2D.Dynamic;
+        currentTimeVictory = startingTimeVictory;
     }
-    
+
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("OnPointerDown");
+        //Debug.Log("OnPointerDown");
         beingGrabbed = 0;
+        
         //rb.gravity = false;
     }
     
@@ -66,7 +91,7 @@ public class NPCMovement : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
         if (transform.position.x<screenBottomLeft.x)
         {
             rb.MovePosition(new Vector2(screenTopRight.x, transform.position.y));
-            Debug.Log("Start again");
+            //Debug.Log("Start again");
         }
     }
 

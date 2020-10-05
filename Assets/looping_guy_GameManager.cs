@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class looping_guy_GameManager : NPCMovement
+public class looping_guy_GameManager : MonoBehaviour
 {
     float currentTime = 0f;
-    float startingTime = 10f;
+    float startingTime = 10f;    
+
     public GameObject npc;
+
+    protected string testString;
+
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +22,7 @@ public class looping_guy_GameManager : NPCMovement
     void Update()
     {
         Timer();
-        Debug.Log(testString);
+        //Debug.Log(testString);
     }
 
     void Timer()
@@ -26,9 +30,22 @@ public class looping_guy_GameManager : NPCMovement
         currentTime -= 1 * Time.deltaTime;
         if (currentTime < 0)
         {
-            Debug.Log("Time up");
+            //Debug.Log("Time up");
             Debug.Log(currentTime);
-            //change scene
+            GameOver("defeat");            
         }        
+    }
+
+    protected void GameOver(string gameOver)
+    {
+        if (gameOver.Equals("defeat"))
+        {
+            Debug.Log("Lost mini-game");
+        }
+        else
+        {
+            Debug.Log("won mini-game");
+        }
+        //change scene
     }
 }
