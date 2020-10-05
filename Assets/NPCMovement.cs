@@ -14,11 +14,6 @@ public class NPCMovement : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
 
     public int beingGrabbed = 1;
    
-    void Start()
-    {
-        
-    }
-
     void FixedUpdate()
     {
         // Movement
@@ -43,6 +38,7 @@ public class NPCMovement : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     public void OnDrag(PointerEventData eventData)
     {
         Debug.Log("OnDrag");
+        rb.bodyType = RigidbodyType2D.Static;
         rectTransform.anchoredPosition += eventData.delta / 100; //canvas.scaleFactor
     }
 
@@ -50,12 +46,14 @@ public class NPCMovement : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     {
         Debug.Log("OnEndDrag");
         beingGrabbed = 1;
+        rb.bodyType = RigidbodyType2D.Dynamic;
     }
     
     public void OnPointerDown(PointerEventData eventData)
     {
         Debug.Log("OnPointerDown");
         beingGrabbed = 0;
+        //rb.gravity = false;
     }
     
     private void NPCMovesLeft()
