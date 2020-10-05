@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class NPCMovement : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
+    protected string testString;
 
     public float moveSpeed = 5f;
 
@@ -13,21 +14,22 @@ public class NPCMovement : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
     Vector2 direction = -Vector2.right;
 
     public int beingGrabbed = 1;
-   
+
+    [SerializeField] private Canvas canvas;
+    private RectTransform rectTransform;
+
     void FixedUpdate()
     {
         // Movement
         //rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
         rb.velocity = direction * moveSpeed * beingGrabbed;
         NPCMovesLeft();
-    }
-
-    [SerializeField] private Canvas canvas;
-    private RectTransform rectTransform;
+    }    
 
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
+        testString = "testString text";
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -67,5 +69,7 @@ public class NPCMovement : MonoBehaviour, IPointerDownHandler, IBeginDragHandler
             Debug.Log("Start again");
         }
     }
+
+
 
 }
