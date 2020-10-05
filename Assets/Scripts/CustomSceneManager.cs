@@ -27,4 +27,8 @@ public class CustomSceneManager : MonoBehaviour
         CustomSceneManager.LoadScene(i);
     }
 
+    public void Exit()
+    {
+        Application.Quit();
+    }
 }
