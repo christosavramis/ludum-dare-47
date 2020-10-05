@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -580,10 +580,10 @@ MonoBehaviour:
   sounds:
   - name: maintheme
     clip: {fileID: 8300000, guid: 9b5357cd147cca84c8f445d0f689e705, type: 3}
-    volume: 0
-    pitch: 0
-    randomVolume: 0
-    randomPitch: 0
+    volume: 0.557
+    pitch: 1.034
+    randomVolume: 0.265
+    randomPitch: 0.278
     loop: 0
 --- !u!4 &1000964945
 Transform:
